@@ -437,6 +437,7 @@ public class ACC_Tiebreaker_v3 {
 
     // Tiebreaker 5: SportSource Analytics Rankings
     private static void SportSource() {
+        System.out.println("Step 5: SportSource Rankings");
         System.out.println("This step is impossible to get without paying SportSource, so it will be skipped.");
         Random_Selection();
         Scanner input = new Scanner (System.in);

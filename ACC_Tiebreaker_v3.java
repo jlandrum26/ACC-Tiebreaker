@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.InputMismatchException;
 import java.util.Random;
 
@@ -29,7 +30,7 @@ public class ACC_Tiebreaker_v3 {
             input.close();
             System.out.println("No teams are tied with each other. Please start over when two or more teams are tied.");
             return;
-        } else if (number > 17) {
+        } else if (number > teams.size()) {
             input.close();
             System.out.println("There are only 17 teams in the ACC. Please start over with 17 teams or less as tied.");
             return;
@@ -70,10 +71,27 @@ public class ACC_Tiebreaker_v3 {
 
     // Method to add teams to list.
     public static void addTeams() {
-        Collections.addAll(teams,
-                            "Clemson", "Florida State", "North Carolina", "Georgia Tech", "Southern Methodist",
-                            "Louisville", "Pittsburgh", "Boston College", "Virginia", "Virginia Tech", "Stanford",
-                            "California", "Miami", "Duke", "North Carolina State", "Wake Forest", "Syracuse");
+        // Collections.addAll(teams,
+        //                     "Clemson", "Florida State", "North Carolina", "Georgia Tech", "Southern Methodist",
+        //                     "Louisville", "Pittsburgh", "Boston College", "Virginia", "Virginia Tech", "Stanford",
+        //                     "California", "Miami", "Duke", "North Carolina State", "Wake Forest", "Syracuse");
+        teams.add("Boston College");
+        teams.add("California");
+        teams.add("Clemson");
+        teams.add("Duke");
+        teams.add("Florida State");
+        teams.add("Georgia Tech");
+        teams.add("Louisville");
+        teams.add("North Carolina");
+        teams.add("North Carolina State");
+        teams.add("Miami");
+        teams.add("Pittsburgh");
+        teams.add("Southern Methodist");
+        teams.add("Stanford");
+        teams.add("Syracuse");
+        teams.add("Virginia");
+        teams.add("Virginia Tech");
+        teams.add("Wake Forest");
     }
 
     // Tiebreaker 1: Head-to-Head

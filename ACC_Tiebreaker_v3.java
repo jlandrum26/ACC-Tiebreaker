@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.Collection;
+// import java.util.Collection;
 import java.util.InputMismatchException;
 import java.util.Random;
 
@@ -32,7 +32,7 @@ public class ACC_Tiebreaker_v3 {
             return;
         } else if (number > teams.size()) {
             input.close();
-            System.out.println("There are only 17 teams in the ACC. Please start over with 17 teams or less as tied.");
+            System.out.printf("There are only %d teams in the ACC. Please start over with %d teams or less as tied.\n", teams.size(), teams.size());
             return;
         }
 

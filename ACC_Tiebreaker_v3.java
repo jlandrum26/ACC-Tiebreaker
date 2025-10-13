@@ -67,6 +67,7 @@ public class ACC_Tiebreaker_v3 {
 
     private static ArrayList<String> teams_tied = new ArrayList<>();
     private static int len_teams_tied = teams_tied.size();
+    private static ArrayList<String> old_teams_tied = new ArrayList<>();
     private static int old_len_teams_tied = len_teams_tied;
 
     // Method to add teams to list.
@@ -283,6 +284,11 @@ public class ACC_Tiebreaker_v3 {
 
     // Tiebreaker 3: Rank Common Conference Opponents
     private static void rank_com_opps(ArrayList<String> com_opps, int com_num, ArrayList<Integer> com_wins) {
+        int m = 0;
+        while (old_teams_tied.size() < len_teams_tied) {
+            old_teams_tied.add(teams_tied.get(m));
+            m++;
+        }
         Scanner input = new Scanner(System.in);
         System.out.println("Step 3: Rank of Common Conference Opponents");
         System.out.println("Assign a rank to each common opponent based on conference standings.");
@@ -466,6 +472,15 @@ public class ACC_Tiebreaker_v3 {
         if (len_teams_tied == 1) {
             System.out.printf("%s wins the tiebreaker!", teams_tied.get(0));
             return true;
+        } else if (len_teams_tied == 0) {
+            // System.out.println("Restore required");
+            int restore = 0;
+            while (old_teams_tied.size() > len_teams_tied) {
+                teams_tied.add(old_teams_tied.get(restore));
+                restore++;
+                len_teams_tied++;
+                // System.out.println(teams_tied);
+            }
         } else if (len_teams_tied != old_len_teams_tied) {
             System.out.printf("The tiebreaker will be restarted with the remaining %d tied teams.\n", len_teams_tied);
             System.out.println(teams_tied);

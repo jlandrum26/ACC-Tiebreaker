@@ -481,16 +481,38 @@ public class ACC_Tiebreaker_v3 {
                 len_teams_tied++;
                 // System.out.println(teams_tied);
             }
-        } else if (len_teams_tied != old_len_teams_tied) {
-            System.out.printf("The tiebreaker will be restarted with the remaining %d tied teams.\n", len_teams_tied);
-            System.out.println(teams_tied);
+        } else if (len_teams_tied == 2) {
             Scanner input = new Scanner(System.in);
-            old_len_teams_tied = len_teams_tied;
-            H2H();
+            System.out.println("Is this tiebreaker being run to determine both ACC Championship teams?");
+            int check = 0;
+            do {
+                String response = input.nextLine();
+                if (response.equalsIgnoreCase("yes")) {
+                    check++;
+                    System.out.printf("%s and %s win the tiebreaker!\n", teams_tied.get(0), teams_tied.get(1));
+                    System.out.println("This tie will be broken in the ACC Championship Game!");
+                } else if (response.equalsIgnoreCase("no")) {
+                    check++;
+                    prepare();
+                }
+            } while (check == 0);
+            input.close();
+            return true;
+        } else if (len_teams_tied != old_len_teams_tied) {
+            Scanner input = new Scanner(System.in);
+            prepare();
             input.close();
             return true;
         }
         System.out.println("The teams are still tied.");
         return false;
+    }
+    private static void prepare() {
+        Scanner input = new Scanner(System.in);
+        System.out.printf("The tiebreaker will be restarted with the remaining %d tied teams.\n", len_teams_tied);
+        System.out.println(teams_tied);
+        old_len_teams_tied = len_teams_tied;
+        H2H();
+        input.close();
     }
 }

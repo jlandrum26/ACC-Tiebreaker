@@ -481,7 +481,7 @@ public class ACC_Tiebreaker_v3 {
                 len_teams_tied++;
                 // System.out.println(teams_tied);
             }
-        } else if (len_teams_tied == 2) {
+        } else if (len_teams_tied == 2 && old_len_teams_tied > 2) {
             Scanner input = new Scanner(System.in);
             System.out.println("Is this tiebreaker being run to determine both ACC Championship teams?");
             int check = 0;

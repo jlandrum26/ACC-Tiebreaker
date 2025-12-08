@@ -1,5 +1,5 @@
-# ACC Tiebreaker
-The contents of this file contain the tiebreaker program for the college football programs in the Atlantic Coast Conference.
+# ACC Tiebreaker 2023-25
+The contents of this file contain the tiebreaker program for the college football programs in the Atlantic Coast Conference from 2023 to 2025.
 # All valid tiebreakers must follow the following rules in the scenario that two teams are tied with each other:
 ## 1. If the teams played each other, the team that won the game would win the tiebreaker.
 ## 2. The team with the higher win percentage against common conference opponents would win the tiebreaker.
